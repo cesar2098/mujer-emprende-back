@@ -13,15 +13,14 @@ import com.portal.comercio.dto.responseDto;
 public class ventasServicesImpl implements ventasServices {
 
     responseDto rsp = new responseDto();
-    ventas venta = new ventas();
-    
+
     @Autowired
     ventasRepository ventaRepo;
 
     @Override
-    public responseDto getVentasId(int codigo){
+    public responseDto getVentasId(Long codigo){
         try {
-            Optional<ventas> ventaOptional = ventaRepo.findById(Long.valueOf(codigo));
+            Optional<ventas> ventaOptional = ventaRepo.findById(codigo);
             if (ventaOptional.isPresent()) {
                 ventas venta = ventaOptional.get();
                 rsp.setCodigo(200);
@@ -34,8 +33,9 @@ public class ventasServicesImpl implements ventasServices {
         } catch (Exception e) {
             rsp.setCodigo(500);
             rsp.setMensaje("Error al buscar la venta");
+            rsp.setRespuesta(e.getMessage());
         }
-        return null;
+        return rsp;
     }
     // @Override
     // public Page<ventas> getVentas(Pageable pageable){
@@ -44,16 +44,21 @@ public class ventasServicesImpl implements ventasServices {
     // }
 
     @Override
-    public responseDto updateVentas(ventas ventas, int codigo){
-        try {          
-            venta.setId_venta(codigo);
-            venta.setFecha_anula(ventas.getFecha_anula());
-            venta.setId_venta_estado(1);
-            venta.setFecha_pago(ventas.getFecha_pago());
-            venta.setObservaciones(ventas.getObservaciones());
-            ventaRepo.save(venta);
-            rsp.setCodigo(200);
-            rsp.setMensaje("Venta actualizada correctamente");
+    public responseDto updateVentas(ventas ventas, Long codigo){
+        try {    
+            Optional<ventas> ventaOptional = ventaRepo.findById(codigo);
+            if (ventaOptional.isPresent()) {
+                ventas venta = ventaOptional.get();
+                venta.setFecha_anula(ventas.getFecha_anula());
+                venta.setFecha_pago(ventas.getFecha_pago());
+                venta.setObservaciones(ventas.getObservaciones());               
+                rsp.setCodigo(200);
+                rsp.setMensaje("Venta actualizada correctamente");
+                ventaRepo.save(venta);
+            } else {
+                rsp.setCodigo(404);
+                rsp.setMensaje("Venta no encontrada");
+            }
         } catch (Exception e) {
             rsp.setCodigo(500);
             rsp.setMensaje("Error al actualizar la venta");
@@ -63,25 +68,33 @@ public class ventasServicesImpl implements ventasServices {
 
     @Override
     public responseDto saveVentas(ventas ventas){
-        try {
-            ventaRepo.save(ventas);
+        try {            
             rsp.setCodigo(200);
             rsp.setMensaje("Venta guardada correctamente");
+            rsp.setRespuesta(ventas);
+            ventaRepo.save(ventas);
         } catch (Exception e) {
             rsp.setCodigo(500);
             rsp.setMensaje("Error al guardar la venta");
+            rsp.setRespuesta(e.getMessage());
         } 
-        return null;
+        return rsp;
     }
 
     @Override
-    public responseDto updateEstado(ventas ventas, int codigo){        
+    public responseDto updateEstado(ventas ventas, Long codigo){        
         try {
-            venta.setId_venta(codigo);
-            venta.setId_venta_estado(ventas.getId_venta_estado());
-            ventaRepo.save(venta);
-            rsp.setCodigo(200);
-            rsp.setMensaje("Estado de Venta actualizada correctamente");
+            Optional<ventas> ventaOptional = ventaRepo.findById(codigo);
+            if (ventaOptional.isPresent()) {
+                ventas venta = ventaOptional.get();
+                venta.setIdVentaEstado(ventas.getIdVentaEstado());               
+                rsp.setCodigo(200);
+                rsp.setMensaje("Estado de Venta actualizada correctamente");
+                ventaRepo.save(venta);
+            } else {
+                rsp.setCodigo(404);
+                rsp.setMensaje("Venta no encontrada");
+            }
         } catch (Exception e) {
             rsp.setCodigo(500);
             rsp.setMensaje("Error al actualizar la venta");

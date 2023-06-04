@@ -4,6 +4,9 @@ public class responseDto {
     private int codigo;
     private String mensaje;
     private Object respuesta;
+
+    public responseDto() {
+    }
     
     public int getCodigo() {
         return codigo;

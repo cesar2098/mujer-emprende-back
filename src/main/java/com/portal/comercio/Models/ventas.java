@@ -1,17 +1,20 @@
 package com.portal.comercio.Models;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "ventas", catalog = "", schema = "COMERCIOS")
+@Table(name = "ventas", catalog = "", schema = "comercios")
 public class ventas implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -20,65 +23,47 @@ public class ventas implements Serializable{
     }
 
     @Id
-    @Column(name = "id_venta")
-    private int id_venta;
-    @Column(name = "id_usuario")
-    private usuarios id_usuario;
-    @Column(name = "fecha_anula")
-    private Date fecha_anula;
-    @Column(name = "fecha_pago")
-    private Date fecha_pago;
-    @Column(name = "observaciones")
-    private String observaciones;
-    @Column(name = "created")
-    private Date created;
-    @Column(name = "id_comercio")
-    private comercios id_comercio;
     @Getter
     @Setter
-    @Column(name = "id_venta_estado")
-    private int id_venta_estado;
+    @Column(name = "id_venta")
+    private Long idVenta;  
 
-    public int getId_venta() {
-        return id_venta;
-    }
-    public void setId_venta(int id_venta) {
-        this.id_venta = id_venta;
-    }
-    public usuarios getId_usuario() {
-        return id_usuario;
-    }
-    public void setId_usuario(usuarios id_usuario) {
-        this.id_usuario = id_usuario;
-    }
-    public Date getFecha_anula() {
-        return fecha_anula;
-    }
-    public void setFecha_anula(Date fecha_anula) {
-        this.fecha_anula = fecha_anula;
-    }
-    public Date getFecha_pago() {
-        return fecha_pago;
-    }
-    public void setFecha_pago(Date fecha_pago) {
-        this.fecha_pago = fecha_pago;
-    }
-    public String getObservaciones() {
-        return observaciones;
-    }
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-    public Date getCreated() {
-        return created;
-    }
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-    public comercios getId_comercio() {
-        return id_comercio;
-    }
-    public void setId_comercio(comercios id_comercio) {
-        this.id_comercio = id_comercio;
-    }   
+    @Getter
+    @Setter
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    private usuarios idUsuario;
+
+    @Getter
+    @Setter
+    @Column(name = "fecha_anula")
+    private Date fecha_anula;
+
+    @Getter
+    @Setter
+    @Column(name = "fecha_pago")
+    private Date fecha_pago;
+    
+    @Getter
+    @Setter
+    @Column(name = "observaciones")
+    private String observaciones;
+
+    @Getter
+    @Setter
+    @Column(name = "created")
+    private Date created;
+
+    @Getter
+    @Setter
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_comercio", referencedColumnName = "id_comercio")
+    private comercios idComercio;
+
+    @Getter
+    @Setter
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_venta_estado", referencedColumnName = "id_venta_estado")
+    private ventasEstado idVentaEstado;
+
 }

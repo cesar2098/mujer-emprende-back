@@ -12,28 +12,29 @@ import com.portal.comercio.Services.ventasServices;
 import com.portal.comercio.dto.responseDto;
 
 @RestController
+@RequestMapping("comercio/ventas")
 public class ventasController {
 
     @Autowired
     ventasServices venta;
     
-    @RequestMapping(method = RequestMethod.POST, value = "/comercio/ventas/save")
+    @RequestMapping(method = RequestMethod.POST, value = "/save")
     public responseDto saveVentas(@RequestBody ventas ventas){
         return venta.saveVentas(ventas);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "comercio/ventas/buscar/{codigo}")
-    public responseDto getVentasId(@PathVariable int codigo){
+    @RequestMapping(method = RequestMethod.GET, value = "/buscar/{codigo}")
+    public responseDto getVentasId(@PathVariable Long codigo){
         return venta.getVentasId(codigo);
     }
 
-    @RequestMapping(method = RequestMethod.PUT,value = "comercio/ventas/update/{codigo}")
-    public responseDto updateVentas(@RequestBody ventas ventas, @PathVariable int codigo){
+    @RequestMapping(method = RequestMethod.PUT,value = "/update/{codigo}")
+    public responseDto updateVentas(@RequestBody ventas ventas, @PathVariable Long codigo){
         return venta.updateVentas(ventas, codigo);
     }
 
-    @RequestMapping(method = RequestMethod.PUT,value = "comercio/ventas/updateestado/{codigo}")
-    public responseDto updateEstado(@RequestBody ventas ventas, @PathVariable int codigo){
+    @RequestMapping(method = RequestMethod.PUT,value = "/updateestado/{codigo}")
+    public responseDto updateEstado(@RequestBody ventas ventas, @PathVariable Long codigo){
         return venta.updateEstado(ventas, codigo);
     }
 }
