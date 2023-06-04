@@ -19,8 +19,6 @@ public class ventasEstado implements Serializable{
     @Id
     @Column(name = "id_venta_estado")
     private int id_venta_estado;
-    @Column(name = "id_venta")
-    private ventas id_venta;
     @Column(name = "nombre")
     private String nombre;
     
@@ -29,12 +27,6 @@ public class ventasEstado implements Serializable{
     }
     public void setId_venta_estado(int id_venta_estado) {
         this.id_venta_estado = id_venta_estado;
-    }
-    public ventas getId_venta() {
-        return id_venta;
-    }
-    public void setId_venta(ventas id_venta) {
-        this.id_venta = id_venta;
     }
     public String getNombre() {
         return nombre;

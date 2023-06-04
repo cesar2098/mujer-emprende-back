@@ -5,7 +5,8 @@ import java.sql.Date;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
+import lombok.Getter;
+import lombok.Setter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Column;
 
@@ -23,8 +24,6 @@ public class ventas implements Serializable{
     private int id_venta;
     @Column(name = "id_usuario")
     private usuarios id_usuario;
-    @Column(name = "estado")
-    private ventasEstado estado;
     @Column(name = "fecha_anula")
     private Date fecha_anula;
     @Column(name = "fecha_pago")
@@ -35,6 +34,10 @@ public class ventas implements Serializable{
     private Date created;
     @Column(name = "id_comercio")
     private comercios id_comercio;
+    @Getter
+    @Setter
+    @Column(name = "id_venta_estado")
+    private int id_venta_estado;
 
     public int getId_venta() {
         return id_venta;
@@ -47,12 +50,6 @@ public class ventas implements Serializable{
     }
     public void setId_usuario(usuarios id_usuario) {
         this.id_usuario = id_usuario;
-    }
-    public ventasEstado getEstado() {
-        return estado;
-    }
-    public void setEstado(ventasEstado estado) {
-        this.estado = estado;
     }
     public Date getFecha_anula() {
         return fecha_anula;
