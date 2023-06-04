@@ -54,11 +54,6 @@ public class usuarios implements Serializable{
 
     @Getter
     @Setter
-    @Column(name = "usuario")
-    private String usuario;
-
-    @Getter
-    @Setter
     @Column(name = "password")
     private String password;
 
