@@ -2,7 +2,9 @@ package com.portal.comercio.Models;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
