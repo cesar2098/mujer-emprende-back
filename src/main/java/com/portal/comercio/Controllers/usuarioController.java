@@ -12,6 +12,5 @@ public class usuarioController {
     @RequestMapping(method = RequestMethod.GET,  value = "comercio/prueba")
     public String prueba(){
         return "Hola mundo";
-    }
-    
+    }    
 }
