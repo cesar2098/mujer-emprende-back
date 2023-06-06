@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.sql.Date;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Column;
 
 @Entity
@@ -49,5 +52,10 @@ public class comercios implements Serializable {
     @Setter
     @Column(name = "created")
     private Date created;
-
+    
+    @Getter
+    @Setter
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_comercio_estado", referencedColumnName = "id_comercio_estado")
+    private comerciosEstado idComercioEstado;
 }
