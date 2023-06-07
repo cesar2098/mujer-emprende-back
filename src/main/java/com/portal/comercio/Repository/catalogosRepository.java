@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.portal.comercio.Models.catalogos;
+import com.portal.comercio.Models.Catalogos;
 
-public interface catalogosRepository extends JpaRepository<catalogos, Long> {
-	Optional<catalogos> findByIdCatalogos(Long codigo);
+public interface catalogosRepository extends JpaRepository<Catalogos, Long> {
+	Optional<Catalogos> findByIdCatalogos(Long codigo);
 }

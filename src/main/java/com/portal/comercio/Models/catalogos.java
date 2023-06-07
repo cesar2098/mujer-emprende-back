@@ -17,18 +17,18 @@ import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "catalogos", catalog = "", schema = "comercios")
-public class catalogos implements Serializable{
+public class Catalogos implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
-    public catalogos() {
+    public Catalogos() {
     }   
 
     @Id
     @Getter
     @Setter
     @Column(name = "id_catalogo")
-    private int id_catalogo;
+    private Long idCatalogos;
 
     @Getter
     @Setter
@@ -54,7 +54,7 @@ public class catalogos implements Serializable{
     @Setter
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_comercio", referencedColumnName = "id_comercio")
-    private comercios id_comercio;
+    private Comercios idComercio;
 
     @Getter
     @Setter

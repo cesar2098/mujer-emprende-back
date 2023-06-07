@@ -1,6 +1,6 @@
 package com.portal.comercio.Services;
 
-import com.portal.comercio.Models.usuarios;
+import com.portal.comercio.Models.Usuarios;
 import com.portal.comercio.Repository.usuariosRepository;
 import com.portal.comercio.dto.responseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class usuariosServicesImpl implements usuariosServices {
     @Override
     public responseDto getAllUsuarios() {
         try{
-            List<usuarios> usuariosList = userRepo.findAll();
+            List<Usuarios> usuariosList = userRepo.findAll();
             rsp.setCodigo(200);
             rsp.setMensaje("[INFO]: Usuarios encontrados.");
             rsp.setRespuesta(usuariosList);
@@ -32,9 +32,9 @@ public class usuariosServicesImpl implements usuariosServices {
     @Override
     public responseDto getUsuariosId(Long id) {
         try{
-            Optional<usuarios> usuarioOptional = userRepo.findById(id);
+            Optional<Usuarios> usuarioOptional = userRepo.findById(id);
             if(usuarioOptional.isPresent()){
-                usuarios usuario = usuarioOptional.get();
+                Usuarios usuario = usuarioOptional.get();
                 rsp.setCodigo(200);
                 rsp.setMensaje("[INFO]: Usuario encontrado");
                 rsp.setRespuesta(usuario);
@@ -51,11 +51,11 @@ public class usuariosServicesImpl implements usuariosServices {
     }
 
     @Override
-    public responseDto updateUsuarios(usuarios user, Long id) {
+    public responseDto updateUsuarios(Usuarios user, Long id) {
         try{
-            Optional<usuarios> usuarioOptional = userRepo.findById(id);
+            Optional<Usuarios> usuarioOptional = userRepo.findById(id);
             if (usuarioOptional.isPresent()) {
-                usuarios usuario = usuarioOptional.get();
+                Usuarios usuario = usuarioOptional.get();
                 usuario.setActivo(user.getActivo());
                 usuario.setApellidos(user.getApellidos());
                 usuario.setContacto(user.getContacto());
@@ -81,7 +81,7 @@ public class usuariosServicesImpl implements usuariosServices {
     }
 
     @Override
-    public responseDto saveUsuarios(usuarios user) {
+    public responseDto saveUsuarios(Usuarios user) {
         try {
             rsp.setCodigo(200);
             rsp.setMensaje("[INFO]: Usuario guardado correctamente");
@@ -96,9 +96,9 @@ public class usuariosServicesImpl implements usuariosServices {
     }
 
     @Override
-    public responseDto deleteUsuarios(usuarios user) {
+    public responseDto deleteUsuarios(Usuarios user) {
         try {
-            usuarios uTmp = new usuarios();
+            Usuarios uTmp = new Usuarios();
             rsp.setCodigo(200);
             rsp.setMensaje("[INFO]: El usuario ha sido eliminado con exito.");
             rsp.setRespuesta(uTmp);

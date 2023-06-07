@@ -10,11 +10,11 @@ import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "ventas_estado", catalog = "", schema = "comercios")
-public class ventasEstado implements Serializable{
+public class VentasEstado implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
-    public ventasEstado() {
+    public VentasEstado() {
     }
 
     @Id

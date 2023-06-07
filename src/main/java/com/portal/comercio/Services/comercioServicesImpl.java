@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.portal.comercio.Models.comercios;
+import com.portal.comercio.Models.Comercios;
 import com.portal.comercio.Repository.comerciosRepository;
 import com.portal.comercio.dto.responseDto;
 
@@ -19,9 +19,9 @@ public class comercioServicesImpl implements comercioServices{
 	@Override
 	public responseDto getComerciosId(Long codigo) {
 		try {
-			Optional<comercios> comercioOptional = comercioRepo.findById(codigo);
+			Optional<Comercios> comercioOptional = comercioRepo.findById(codigo);
 			if(comercioOptional.isPresent()) {
-				comercios comercio = comercioOptional.get();
+				Comercios comercio = comercioOptional.get();
 				rsp.setCodigo(200);
 				rsp.setMensaje("Comercio encontrado");
 			} else {
@@ -37,11 +37,11 @@ public class comercioServicesImpl implements comercioServices{
 	}
 
 	@Override
-	public responseDto updateComercios(comercios comercios, Long codigo) {
+	public responseDto updateComercios(Comercios comercios, Long codigo) {
 		try {
-			Optional<comercios> comercioOptional = comercioRepo.findById(codigo);
+			Optional<Comercios> comercioOptional = comercioRepo.findById(codigo);
             if (comercioOptional.isPresent()) {
-                comercios comercio = comercioOptional.get();
+                Comercios comercio = comercioOptional.get();
                 comercio.setNombre(comercios.getNombre());
                 comercio.setDescripcion(comercios.getDescripcion());
                 comercio.setLogo(comercios.getLogo());
@@ -62,7 +62,7 @@ public class comercioServicesImpl implements comercioServices{
 	}
 
 	@Override
-	public responseDto saveComercios(comercios comercios) {
+	public responseDto saveComercios(Comercios comercios) {
 		try {
 			rsp.setCodigo(200);
             rsp.setMensaje("Comercio guardado correctamente");
@@ -77,11 +77,11 @@ public class comercioServicesImpl implements comercioServices{
 	}
 
 	@Override
-	public responseDto updateEstado(comercios comercios, Long codigo) {
+	public responseDto updateEstado(Comercios comercios, Long codigo) {
 		try {
-			Optional<comercios> comercioOptional = comercioRepo.findById(codigo);
+			Optional<Comercios> comercioOptional = comercioRepo.findById(codigo);
             if (comercioOptional.isPresent()) {
-                comercios comercio = comercioOptional.get();
+                Comercios comercio = comercioOptional.get();
                 comercio.setIdComercioEstado(comercios.getIdComercioEstado());               
                 rsp.setCodigo(200);
                 rsp.setMensaje("Estado de Comercio actualizado correctamente");

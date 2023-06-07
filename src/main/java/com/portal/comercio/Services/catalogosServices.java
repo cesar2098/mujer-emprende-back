@@ -1,12 +1,12 @@
 package com.portal.comercio.Services;
 
-import com.portal.comercio.Models.catalogos;
+import com.portal.comercio.Models.Catalogos;
 import com.portal.comercio.dto.responseDto;
 
 public interface catalogosServices {
 	public responseDto getCatalogosId(Long codigo);
     // public Page<catalogos> getCatalogos(Pageable pageable);
-    public responseDto updateCatalogos(catalogos catalogos, Long codigo);
-    public responseDto saveCatalogos(catalogos catalogos);
-    public responseDto updateEstado(catalogos catalogos, Long codigo); 
+    public responseDto updateCatalogos(Catalogos catalogos, Long codigo);
+    public responseDto saveCatalogos(Catalogos catalogos);
+    public responseDto updateEstado(Catalogos catalogos, Long codigo); 
 }

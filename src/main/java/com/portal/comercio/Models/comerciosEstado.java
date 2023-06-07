@@ -11,9 +11,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "comercio_estado", catalog = "", schema = "comercios")
-public class comerciosEstado implements Serializable {
+public class ComerciosEstado implements Serializable {
 	private static final long serialVersionUID = 1L;
-	public comerciosEstado() {}
+	public ComerciosEstado() {}
 	@Id
     @Getter
     @Setter

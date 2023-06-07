@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.portal.comercio.Models.ventas;
+import com.portal.comercio.Models.Ventas;
 import com.portal.comercio.Repository.ventasRepository;
 import com.portal.comercio.dto.responseDto;
 
@@ -20,9 +20,9 @@ public class ventasServicesImpl implements ventasServices {
     @Override
     public responseDto getVentasId(Long codigo){
         try {
-            Optional<ventas> ventaOptional = ventaRepo.findById(codigo);
+            Optional<Ventas> ventaOptional = ventaRepo.findById(codigo);
             if (ventaOptional.isPresent()) {
-                ventas venta = ventaOptional.get();
+                Ventas venta = ventaOptional.get();
                 rsp.setCodigo(200);
                 rsp.setMensaje("Venta encontrada");
                 rsp.setRespuesta(venta);
@@ -44,13 +44,13 @@ public class ventasServicesImpl implements ventasServices {
     // }
 
     @Override
-    public responseDto updateVentas(ventas ventas, Long codigo){
+    public responseDto updateVentas(Ventas ventas, Long codigo){
         try {    
-            Optional<ventas> ventaOptional = ventaRepo.findById(codigo);
+            Optional<Ventas> ventaOptional = ventaRepo.findById(codigo);
             if (ventaOptional.isPresent()) {
-                ventas venta = ventaOptional.get();
-                venta.setFecha_anula(ventas.getFecha_anula());
-                venta.setFecha_pago(ventas.getFecha_pago());
+                Ventas venta = ventaOptional.get();
+                venta.setFechaAnula(ventas.getFechaAnula());
+                venta.setFechaPago(ventas.getFechaPago());
                 venta.setObservaciones(ventas.getObservaciones());               
                 rsp.setCodigo(200);
                 rsp.setMensaje("Venta actualizada correctamente");
@@ -67,7 +67,7 @@ public class ventasServicesImpl implements ventasServices {
     }
 
     @Override
-    public responseDto saveVentas(ventas ventas){
+    public responseDto saveVentas(Ventas ventas){
         try {            
             rsp.setCodigo(200);
             rsp.setMensaje("Venta guardada correctamente");
@@ -82,11 +82,11 @@ public class ventasServicesImpl implements ventasServices {
     }
 
     @Override
-    public responseDto updateEstado(ventas ventas, Long codigo){        
+    public responseDto updateEstado(Ventas ventas, Long codigo){        
         try {
-            Optional<ventas> ventaOptional = ventaRepo.findById(codigo);
+            Optional<Ventas> ventaOptional = ventaRepo.findById(codigo);
             if (ventaOptional.isPresent()) {
-                ventas venta = ventaOptional.get();
+                Ventas venta = ventaOptional.get();
                 venta.setIdVentaEstado(ventas.getIdVentaEstado());               
                 rsp.setCodigo(200);
                 rsp.setMensaje("Estado de Venta actualizada correctamente");

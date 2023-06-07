@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.portal.comercio.Models.ventas;
+import com.portal.comercio.Models.Ventas;
 import com.portal.comercio.Services.ventasServices;
 import com.portal.comercio.dto.responseDto;
 
@@ -19,7 +19,7 @@ public class ventasController {
     ventasServices venta;
     
     @RequestMapping(method = RequestMethod.POST, value = "/save")
-    public responseDto saveVentas(@RequestBody ventas ventas){
+    public responseDto saveVentas(@RequestBody Ventas ventas){
         return venta.saveVentas(ventas);
     }
 
@@ -29,12 +29,12 @@ public class ventasController {
     }
 
     @RequestMapping(method = RequestMethod.PUT,value = "/update/{codigo}")
-    public responseDto updateVentas(@RequestBody ventas ventas, @PathVariable Long codigo){
+    public responseDto updateVentas(@RequestBody Ventas ventas, @PathVariable Long codigo){
         return venta.updateVentas(ventas, codigo);
     }
 
     @RequestMapping(method = RequestMethod.PUT,value = "/updateestado/{codigo}")
-    public responseDto updateEstado(@RequestBody ventas ventas, @PathVariable Long codigo){
+    public responseDto updateEstado(@RequestBody Ventas ventas, @PathVariable Long codigo){
         return venta.updateEstado(ventas, codigo);
     }
 }
