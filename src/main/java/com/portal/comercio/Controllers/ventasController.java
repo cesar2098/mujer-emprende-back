@@ -23,7 +23,7 @@ public class ventasController {
         return venta.saveVentas(ventas);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/buscar/{codigo}")
+    @RequestMapping(method = RequestMethod.GET, value = "/search/{codigo}")
     public responseDto getVentasId(@PathVariable Long codigo){
         return venta.getVentasId(codigo);
     }

@@ -23,7 +23,7 @@ public class catalogosController {
         return catalogosservice.saveCatalogos(cata);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/buscar/{codigo}")
+    @RequestMapping(method = RequestMethod.GET, value = "/search/{codigo}")
     public responseDto getCatalogosId(@PathVariable Long codigo){
         return catalogosservice.getCatalogosId(codigo);
     }

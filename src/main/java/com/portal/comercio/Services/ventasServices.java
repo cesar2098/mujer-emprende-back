@@ -1,8 +1,5 @@
 package com.portal.comercio.Services;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
-import org.springframework.data.domain.Page;
-
 import com.portal.comercio.Models.Ventas;
 import com.portal.comercio.dto.responseDto;
 

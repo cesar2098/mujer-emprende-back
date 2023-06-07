@@ -1,7 +1,6 @@
 package com.portal.comercio.Controllers;
 
 import com.portal.comercio.Models.Usuarios;
-import com.portal.comercio.Models.Ventas;
 import com.portal.comercio.Services.usuariosServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

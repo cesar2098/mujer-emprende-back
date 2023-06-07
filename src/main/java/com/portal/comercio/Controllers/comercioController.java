@@ -22,7 +22,7 @@ public class comercioController {
 		return comercio.saveComercios(comercios);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/buscar/{codigo}")
+	@RequestMapping(method = RequestMethod.GET, value = "/search/{codigo}")
 	public responseDto getComerciosId(@PathVariable Long codigo) {
 		return comercio.getComerciosId(codigo);
 	}
