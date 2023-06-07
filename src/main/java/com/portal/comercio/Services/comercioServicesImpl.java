@@ -82,7 +82,7 @@ public class comercioServicesImpl implements comercioServices{
 			Optional<comercios> comercioOptional = comercioRepo.findById(codigo);
             if (comercioOptional.isPresent()) {
                 comercios comercio = comercioOptional.get();
-                comercio.setIdComerciosEstado(comercios.getIdComerciosEstado());               
+                comercio.setIdComercioEstado(comercios.getIdComercioEstado());               
                 rsp.setCodigo(200);
                 rsp.setMensaje("Estado de Comercio actualizado correctamente");
                 comercioRepo.save(comercio);
