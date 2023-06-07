@@ -53,9 +53,9 @@ public class Comercios implements Serializable {
     @Column(name = "created")
     private Date created;
     
-    @Getter
-    @Setter
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_comercio_estado", referencedColumnName = "id_comercio_estado")
-    private ComerciosEstado idComercioEstado;
+    // @Getter
+    // @Setter
+    // @ManyToOne(fetch = FetchType.EAGER)
+    // @JoinColumn(name = "id_comercio_estado", referencedColumnName = "id_comercio_estado")
+    // private ComerciosEstado idComercioEstado;
 }

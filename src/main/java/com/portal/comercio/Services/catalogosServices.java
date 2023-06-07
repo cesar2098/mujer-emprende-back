@@ -8,5 +8,4 @@ public interface catalogosServices {
     // public Page<catalogos> getCatalogos(Pageable pageable);
     public responseDto updateCatalogos(Catalogos catalogos, Long codigo);
     public responseDto saveCatalogos(Catalogos catalogos);
-    public responseDto updateEstado(Catalogos catalogos, Long codigo); 
 }

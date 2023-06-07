@@ -12,7 +12,7 @@ import com.portal.comercio.Services.ventasDetalleServices;
 import com.portal.comercio.dto.responseDto;
 
 @RestController
-@RequestMapping("comercio/ventasDetalle")
+@RequestMapping("comercio/ventasdetalle")
 public class ventasDetalleController {
     
     @Autowired

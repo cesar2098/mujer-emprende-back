@@ -24,6 +24,7 @@ public class comercioServicesImpl implements comercioServices{
 				Comercios comercio = comercioOptional.get();
 				rsp.setCodigo(200);
 				rsp.setMensaje("Comercio encontrado");
+				rsp.setRespuesta(comercio);
 			} else {
 				rsp.setCodigo(404);
 				rsp.setMensaje("Comercio no encontrado");
@@ -66,7 +67,6 @@ public class comercioServicesImpl implements comercioServices{
 		try {
 			rsp.setCodigo(200);
             rsp.setMensaje("Comercio guardado correctamente");
-            rsp.setRespuesta(comercios);
             comercioRepo.save(comercios);
 		} catch (Exception e) {
 			rsp.setCodigo(500);
@@ -76,26 +76,26 @@ public class comercioServicesImpl implements comercioServices{
 		return rsp;
 	}
 
-	@Override
-	public responseDto updateEstado(Comercios comercios, Long codigo) {
-		try {
-			Optional<Comercios> comercioOptional = comercioRepo.findById(codigo);
-            if (comercioOptional.isPresent()) {
-                Comercios comercio = comercioOptional.get();
-                comercio.setIdComercioEstado(comercios.getIdComercioEstado());               
-                rsp.setCodigo(200);
-                rsp.setMensaje("Estado de Comercio actualizado correctamente");
-                comercioRepo.save(comercio);
-            } else {
-                rsp.setCodigo(404);
-                rsp.setMensaje("Comercio no encontrado");
-            }
-		} catch (Exception e) {
-			rsp.setCodigo(500);
-            rsp.setMensaje("Error al actualizar el comercio");
-		}
-		return rsp;
-	}
+	// @Override
+	// public responseDto updateEstado(Comercios comercios, Long codigo) {
+	// 	try {
+	// 		Optional<Comercios> comercioOptional = comercioRepo.findById(codigo);
+    //         if (comercioOptional.isPresent()) {
+    //             Comercios comercio = comercioOptional.get();
+    //             comercio.setIdComercioEstado(comercios.getIdComercioEstado());               
+    //             rsp.setCodigo(200);
+    //             rsp.setMensaje("Estado de Comercio actualizado correctamente");
+    //             comercioRepo.save(comercio);
+    //         } else {
+    //             rsp.setCodigo(404);
+    //             rsp.setMensaje("Comercio no encontrado");
+    //         }
+	// 	} catch (Exception e) {
+	// 		rsp.setCodigo(500);
+    //         rsp.setMensaje("Error al actualizar el comercio");
+	// 	}
+	// 	return rsp;
+	// }
 	
 	
 }

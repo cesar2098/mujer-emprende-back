@@ -66,7 +66,6 @@ public class ventasDetalleServicesImpl implements ventasDetalleServices {
             Optional<VentasDetalle> ventaOptional = ventaDetalleRepo.findById(codigo);
             if (ventaOptional.isPresent()) {
                 VentasDetalle venta = ventaOptional.get();
-                venta.setIdVenta(ventaDetalle.getIdVenta());
                 venta.setIdCatalogos(ventaDetalle.getIdCatalogos());
                 venta.setCantidad(ventaDetalle.getCantidad());  
                 venta.setPrecio(ventaDetalle.getPrecio());

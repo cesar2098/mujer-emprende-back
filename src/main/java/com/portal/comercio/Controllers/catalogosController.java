@@ -32,9 +32,4 @@ public class catalogosController {
     public responseDto updateCatalogos(@RequestBody Catalogos cata, @PathVariable Long codigo){
         return catalogosservice.updateCatalogos(cata, codigo);
     }
-
-    @RequestMapping(method = RequestMethod.PUT,value = "/updateestado/{codigo}")
-    public responseDto updateEstado(@RequestBody Catalogos cata, @PathVariable Long codigo){
-        return catalogosservice.updateEstado(cata, codigo);
-    }
 }

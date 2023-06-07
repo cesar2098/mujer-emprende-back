@@ -32,8 +32,8 @@ public class comercioController {
 		return comercio.updateComercios(comercios, codigo);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/updateestado/{codigo}")
-	public responseDto updateEstado(@RequestBody Comercios comercios, @PathVariable Long codigo) {
-		return comercio.updateEstado(comercios, codigo);
-	}
+	// @RequestMapping(method = RequestMethod.PUT, value = "/updateestado/{codigo}")
+	// public responseDto updateEstado(@RequestBody Comercios comercios, @PathVariable Long codigo) {
+	// 	return comercio.updateEstado(comercios, codigo);
+	// }
 }
