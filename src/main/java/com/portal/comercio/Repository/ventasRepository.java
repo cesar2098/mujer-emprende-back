@@ -8,6 +8,6 @@ import com.portal.comercio.Models.Ventas;
 
 public interface ventasRepository extends JpaRepository<Ventas, Long>  {
 
-    Optional<Ventas> findByIdVenta(Long codigo);
+    public Optional<Ventas> findByIdVenta(Long codigo);
     
 }

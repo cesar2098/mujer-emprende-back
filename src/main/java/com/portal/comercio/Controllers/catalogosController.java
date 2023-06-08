@@ -28,6 +28,11 @@ public class catalogosController {
         return catalogosservice.getCatalogosId(codigo);
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/productcomercio/{codigo}")
+    public responseDto getProductoComercio(@PathVariable Long codigo){
+        return catalogosservice.getProductoComercio(codigo);
+    }
+
     @RequestMapping(method = RequestMethod.PUT,value = "/update/{codigo}")
     public responseDto updateCatalogos(@RequestBody Catalogos cata, @PathVariable Long codigo){
         return catalogosservice.updateCatalogos(cata, codigo);

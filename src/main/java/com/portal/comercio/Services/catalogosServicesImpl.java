@@ -1,5 +1,6 @@
 package com.portal.comercio.Services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,26 @@ public class catalogosServicesImpl implements catalogosServices{
                 rsp.setCodigo(200);
                 rsp.setMensaje("Catalogo encontrado");
                 rsp.setRespuesta(cata);
+            } else {
+                rsp.setCodigo(404);
+                rsp.setMensaje("Catalogo no encontrado");
+            }
+        } catch (Exception e) {
+            rsp.setCodigo(500);
+            rsp.setMensaje("Error al buscar el catalogo");
+            rsp.setRespuesta(e.getMessage());
+        }
+        return rsp;
+    }
+
+    @Override
+    public responseDto getProductoComercio(Long codigo){
+        try {
+            List<Catalogos> catalogosList = catalogosRepo.findCatalogosByIdComercio(codigo);
+            if (!catalogosList.isEmpty()) {
+                rsp.setCodigo(200);
+                rsp.setMensaje("Catalogo encontrado");
+                rsp.setRespuesta(catalogosList);
             } else {
                 rsp.setCodigo(404);
                 rsp.setMensaje("Catalogo no encontrado");
