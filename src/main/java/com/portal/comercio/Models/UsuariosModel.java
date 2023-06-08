@@ -15,11 +15,11 @@ import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "usuarios", catalog = "", schema = "comercios")
-public class Usuarios implements Serializable{
+public class UsuariosModel implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
-    public Usuarios() {
+    public UsuariosModel() {
     }   
     @Id
     @Getter
@@ -76,6 +76,6 @@ public class Usuarios implements Serializable{
     @Setter
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_comercio", referencedColumnName = "id_comercio")
-    private Comercios idComercio;
+    private ComerciosModel idComercio;
 
 }

@@ -15,11 +15,11 @@ import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "ventas", catalog = "", schema = "comercios")
-public class Ventas implements Serializable{
+public class VentasModel implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
-    public Ventas() {
+    public VentasModel() {
     }
 
     @Id
@@ -32,7 +32,7 @@ public class Ventas implements Serializable{
     @Setter
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Usuarios idUsuario;
+    private UsuariosModel idUsuario;
 
     @Getter
     @Setter
@@ -58,12 +58,12 @@ public class Ventas implements Serializable{
     @Setter
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_comercio", referencedColumnName = "id_comercio")
-    private Comercios idComercio;
+    private ComerciosModel idComercio;
 
     @Getter
     @Setter
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_venta_estado", referencedColumnName = "id_venta_estado")
-    private VentasEstado idVentaEstado;
+    private VentasEstadoModel idVentaEstado;
 
 }

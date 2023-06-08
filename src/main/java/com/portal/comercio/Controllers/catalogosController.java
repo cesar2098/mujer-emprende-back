@@ -19,7 +19,7 @@ public class catalogosController {
 	catalogosServices catalogosservice;
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/save")
-    public responseDto saveCatalogos(@RequestBody Catalogos cata){
+    public responseDto saveCatalogos(@RequestBody CatalogosModel cata){
         return catalogosservice.saveCatalogos(cata);
     }
 
@@ -34,7 +34,7 @@ public class catalogosController {
     }
 
     @RequestMapping(method = RequestMethod.PUT,value = "/update/{codigo}")
-    public responseDto updateCatalogos(@RequestBody Catalogos cata, @PathVariable Long codigo){
+    public responseDto updateCatalogos(@RequestBody CatalogosModel cata, @PathVariable Long codigo){
         return catalogosservice.updateCatalogos(cata, codigo);
     }
 }

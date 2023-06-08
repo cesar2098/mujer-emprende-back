@@ -12,11 +12,11 @@ import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "comercios", catalog = "", schema = "comercios")
-public class Comercios implements Serializable {
+public class ComerciosModel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Comercios() {
+    public ComerciosModel() {
     }   
 
     @Id

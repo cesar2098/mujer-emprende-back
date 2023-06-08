@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.portal.comercio.Models.Comercios;
+import com.portal.comercio.Models.ComerciosModel;
 import com.portal.comercio.Repository.comerciosRepository;
 import com.portal.comercio.dto.responseDto;
 
@@ -19,9 +19,9 @@ public class comercioServicesImpl implements comercioServices{
 	@Override
 	public responseDto getComerciosId(Long codigo) {
 		try {
-			Optional<Comercios> comercioOptional = comercioRepo.findById(codigo);
+			Optional<ComerciosModel> comercioOptional = comercioRepo.findById(codigo);
 			if(comercioOptional.isPresent()) {
-				Comercios comercio = comercioOptional.get();
+				ComerciosModel comercio = comercioOptional.get();
 				rsp.setCodigo(200);
 				rsp.setMensaje("Comercio encontrado");
 				rsp.setRespuesta(comercio);
@@ -38,11 +38,11 @@ public class comercioServicesImpl implements comercioServices{
 	}
 
 	@Override
-	public responseDto updateComercios(Comercios comercios, Long codigo) {
+	public responseDto updateComercios(ComerciosModel comercios, Long codigo) {
 		try {
-			Optional<Comercios> comercioOptional = comercioRepo.findById(codigo);
+			Optional<ComerciosModel> comercioOptional = comercioRepo.findById(codigo);
             if (comercioOptional.isPresent()) {
-                Comercios comercio = comercioOptional.get();
+                ComerciosModel comercio = comercioOptional.get();
                 comercio.setNombre(comercios.getNombre());
                 comercio.setDescripcion(comercios.getDescripcion());
                 comercio.setLogo(comercios.getLogo());
@@ -63,7 +63,7 @@ public class comercioServicesImpl implements comercioServices{
 	}
 
 	@Override
-	public responseDto saveComercios(Comercios comercios) {
+	public responseDto saveComercios(ComerciosModel comercios) {
 		try {
 			rsp.setCodigo(200);
             rsp.setMensaje("Comercio guardado correctamente");

@@ -4,10 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.portal.comercio.Models.Ventas;
+import com.portal.comercio.Models.VentasModel;
 
-public interface ventasRepository extends JpaRepository<Ventas, Long>  {
+public interface ventasRepository extends JpaRepository<VentasModel, Long>  {
 
-    public Optional<Ventas> findByIdVenta(Long codigo);
+    public Optional<VentasModel> findByIdVenta(Long codigo);
     
 }

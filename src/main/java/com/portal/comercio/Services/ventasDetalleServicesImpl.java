@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.portal.comercio.Models.VentasDetalle;
+import com.portal.comercio.Models.VentasDetalleModel;
 import com.portal.comercio.Repository.ventasDetalleRepository;
 import com.portal.comercio.dto.responseDto;
 
@@ -21,7 +21,7 @@ public class ventasDetalleServicesImpl implements ventasDetalleServices {
     @Override
     public responseDto getAllVentasDetalle(Long VentaId) {
         try {
-            List<VentasDetalle> ventaOptional = ventaDetalleRepo.findAll();
+            List<VentasDetalleModel> ventaOptional = ventaDetalleRepo.findAll();
             if (!ventaOptional.isEmpty()) {
                 //VentasDetalle ventaDetalle = ventaOptional.get(0);
                 rsp.setCodigo(200);
@@ -42,9 +42,9 @@ public class ventasDetalleServicesImpl implements ventasDetalleServices {
     @Override
     public responseDto getVentasDetalleId(Long ventaDetalleId) {
         try {
-            Optional<VentasDetalle> ventaOptional = ventaDetalleRepo.findById(ventaDetalleId);
+            Optional<VentasDetalleModel> ventaOptional = ventaDetalleRepo.findById(ventaDetalleId);
             if (ventaOptional.isPresent()) {
-                VentasDetalle ventaDetalle = ventaOptional.get();
+                VentasDetalleModel ventaDetalle = ventaOptional.get();
                 rsp.setCodigo(200);
                 rsp.setMensaje("Venta encontrada");
                 rsp.setRespuesta(ventaDetalle);
@@ -61,11 +61,11 @@ public class ventasDetalleServicesImpl implements ventasDetalleServices {
     }
 
     @Override
-    public responseDto updateVentasDetalle(VentasDetalle ventaDetalle, Long codigo) {
+    public responseDto updateVentasDetalle(VentasDetalleModel ventaDetalle, Long codigo) {
         try {    
-            Optional<VentasDetalle> ventaOptional = ventaDetalleRepo.findById(codigo);
+            Optional<VentasDetalleModel> ventaOptional = ventaDetalleRepo.findById(codigo);
             if (ventaOptional.isPresent()) {
-                VentasDetalle venta = ventaOptional.get();
+                VentasDetalleModel venta = ventaOptional.get();
                 venta.setIdCatalogos(ventaDetalle.getIdCatalogos());
                 venta.setCantidad(ventaDetalle.getCantidad());  
                 venta.setPrecio(ventaDetalle.getPrecio());
@@ -85,7 +85,7 @@ public class ventasDetalleServicesImpl implements ventasDetalleServices {
     }
 
     @Override
-    public responseDto saveVentasDetalle(VentasDetalle ventaDetalle) {
+    public responseDto saveVentasDetalle(VentasDetalleModel ventaDetalle) {
         try {            
             rsp.setCodigo(200);
             rsp.setMensaje("Venta guardada correctamente");

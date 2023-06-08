@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.portal.comercio.Models.Catalogos;
+import com.portal.comercio.Models.CatalogosModel;
 import com.portal.comercio.Repository.catalogosRepository;
 import com.portal.comercio.dto.responseDto;
 
@@ -20,9 +20,9 @@ public class catalogosServicesImpl implements catalogosServices{
     @Override
     public responseDto getCatalogosId(Long codigo){
         try {
-            Optional<Catalogos> catalogosOptional = catalogosRepo.findById(codigo);
+            Optional<CatalogosModel> catalogosOptional = catalogosRepo.findById(codigo);
             if (catalogosOptional.isPresent()) {
-            	Catalogos cata = catalogosOptional.get();
+            	CatalogosModel cata = catalogosOptional.get();
                 rsp.setCodigo(200);
                 rsp.setMensaje("Catalogo encontrado");
                 rsp.setRespuesta(cata);
@@ -41,7 +41,7 @@ public class catalogosServicesImpl implements catalogosServices{
     @Override
     public responseDto getProductoComercio(Long codigo){
         try {
-            List<Catalogos> catalogosList = catalogosRepo.findCatalogosByIdComercio(codigo);
+            List<CatalogosModel> catalogosList = catalogosRepo.findCatalogosByIdComercio(codigo);
             if (!catalogosList.isEmpty()) {
                 rsp.setCodigo(200);
                 rsp.setMensaje("Catalogo encontrado");
@@ -59,11 +59,11 @@ public class catalogosServicesImpl implements catalogosServices{
     }
 
     @Override
-    public responseDto updateCatalogos(Catalogos cata, Long codigo){
+    public responseDto updateCatalogos(CatalogosModel cata, Long codigo){
         try {    
-            Optional<Catalogos> catalogosOptional = catalogosRepo.findById(codigo);
+            Optional<CatalogosModel> catalogosOptional = catalogosRepo.findById(codigo);
             if (catalogosOptional.isPresent()) {
-            	Catalogos venta = catalogosOptional.get();
+            	CatalogosModel venta = catalogosOptional.get();
                 venta.setNombre(cata.getNombre());
                 venta.setDescripcion(cata.getDescripcion());
                 venta.setPrecio(cata.getPrecio());
@@ -84,7 +84,7 @@ public class catalogosServicesImpl implements catalogosServices{
     }
 
     @Override
-    public responseDto saveCatalogos(Catalogos cata){
+    public responseDto saveCatalogos(CatalogosModel cata){
         try {            
             rsp.setCodigo(200);
             rsp.setMensaje("Catalogo guardado correctamente");
