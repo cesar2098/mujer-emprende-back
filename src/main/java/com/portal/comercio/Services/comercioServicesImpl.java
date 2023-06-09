@@ -1,5 +1,6 @@
 package com.portal.comercio.Services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,26 @@ public class comercioServicesImpl implements comercioServices{
 				rsp.setCodigo(200);
 				rsp.setMensaje("Comercio encontrado");
 				rsp.setRespuesta(comercio);
+			} else {
+				rsp.setCodigo(404);
+				rsp.setMensaje("Comercio no encontrado");
+			}
+		} catch (Exception e) {
+			rsp.setCodigo(500);
+			rsp.setMensaje("Error al buscar la comercio");
+			rsp.setRespuesta(e.getMessage());
+		}
+		return rsp;
+	}
+
+	@Override
+	public responseDto getAllComercios() {
+		try {
+			List<ComerciosModel> comercioList = comercioRepo.findAll();
+			if(!comercioList.isEmpty()) {
+				rsp.setCodigo(200);
+				rsp.setMensaje("Comercio encontrado");
+				rsp.setRespuesta(comercioList);
 			} else {
 				rsp.setCodigo(404);
 				rsp.setMensaje("Comercio no encontrado");

@@ -26,6 +26,11 @@ public class comercioController {
 	public responseDto getComerciosId(@PathVariable Long codigo) {
 		return comercio.getComerciosId(codigo);
 	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/search")
+	public responseDto getAllComercios() {
+		return comercio.getAllComercios();
+	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/update/{codigo}")
 	public responseDto updateComercios(@RequestBody ComerciosModel comercios, @PathVariable Long codigo) {
