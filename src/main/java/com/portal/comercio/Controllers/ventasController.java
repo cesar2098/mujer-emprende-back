@@ -1,6 +1,7 @@
 package com.portal.comercio.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.portal.comercio.dto.responseDto;
 
 @RestController
 @RequestMapping("comercio/ventas")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ventasController {
 
     @Autowired

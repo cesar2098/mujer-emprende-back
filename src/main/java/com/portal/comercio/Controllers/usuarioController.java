@@ -9,6 +9,7 @@ import com.portal.comercio.dto.responseDto;
 
 @RestController
 @RequestMapping("comercio/usuarios")
+@CrossOrigin(origins = "http://localhost:4200")
 public class usuarioController {
     @Autowired
     usuariosServices usuariosSrvc;
