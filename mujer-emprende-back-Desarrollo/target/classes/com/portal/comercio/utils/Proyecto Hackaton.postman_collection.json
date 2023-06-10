@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "9e3efdbd-1e96-4386-b837-f4d75972f3f6",
+		"name": "Proyecto Hackaton",
+		"description": "Api para portal emprendedoras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12094506",
+		"_collection_link": "https://dark-comet-683782.postman.co/workspace/Hackaton~b408eb5d-cd3a-417d-a87d-6ca9a6753dbc/collection/12094506-9e3efdbd-1e96-4386-b837-f4d75972f3f6?action=share&creator=12094506&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "AppComercios",
+			"item": [
+				{
+					"name": "Ventas",
+					"item": [
+						{
+							"name": "SaveVentas",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idVenta\": 3,\r\n    \"idUsuario\": {\r\n        \"idUsuario\": 1,\r\n        \"correo\": \"cesar.martinez@mail.com\",\r\n        \"nombres\": \"cesar\",\r\n        \"apellidos\": \"martinez\",\r\n        \"contacto\": \"7634-7337\",\r\n        \"direccion\": \"Paleca\",\r\n        \"password\": \"123456\",\r\n        \"activo\": 1,\r\n        \"rol\": \"1\",\r\n        \"created\": \"2023-06-03\",\r\n        \"idComercio\": {\r\n            \"idComercio\": 1,\r\n            \"nombre\": \"Big Burguer King\",\r\n            \"descripcion\": \"Las mejores Hamburguesas \",\r\n            \"logo\": null,\r\n            \"activo\": 1,\r\n            \"created\": \"2023-06-03\"\r\n        }\r\n    },\r\n    \"fechaAnula\": null,\r\n    \"fechaPago\": null,\r\n    \"observaciones\": \"Prueba Insert venta memo\",\r\n    \"created\": \"2023-06-07T06:00:00.000+00:00\",\r\n    \"idComercio\": {\r\n        \"idComercio\": 1,\r\n        \"nombre\": \"Big Burguer King\",\r\n        \"descripcion\": \"Las mejores Hamburguesas \",\r\n        \"logo\": null,\r\n        \"activo\": 1,\r\n        \"created\": \"2023-06-03\"\r\n    },\r\n    \"idVentaEstado\":  {\r\n        \"idVentaEstado\": 1,\r\n        \"nombre\": \"pendiente\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventas/save",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventas",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SearchVentas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventas/search/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventas",
+										"search",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateVentas",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idVenta\": 3,\r\n    \"idUsuario\": {\r\n        \"idUsuario\": 1,\r\n        \"correo\": \"cesar.martinez@mail.com\",\r\n        \"nombres\": \"cesar\",\r\n        \"apellidos\": \"martinez\",\r\n        \"contacto\": \"7634-7337\",\r\n        \"direccion\": \"Paleca\",\r\n        \"password\": \"123456\",\r\n        \"activo\": 1,\r\n        \"rol\": \"1\",\r\n        \"created\": \"2023-06-03\",\r\n        \"idComercio\": {\r\n            \"idComercio\": 1,\r\n            \"nombre\": \"Big Burguer King\",\r\n            \"descripcion\": \"Las mejores Hamburguesas \",\r\n            \"logo\": null,\r\n            \"activo\": 1,\r\n            \"created\": \"2023-06-03\"\r\n        }\r\n    },\r\n    \"fechaAnula\": null,\r\n    \"fechaPago\": null,\r\n    \"observaciones\": \"Actualizando las observaciones del tramite 3\",\r\n    \"created\": \"2023-06-07T06:00:00.000+00:00\",\r\n    \"idComercio\": {\r\n        \"idComercio\": 1,\r\n        \"nombre\": \"Big Burguer King\",\r\n        \"descripcion\": \"Las mejores Hamburguesas \",\r\n        \"logo\": null,\r\n        \"activo\": 1,\r\n        \"created\": \"2023-06-03\"\r\n    },\r\n    \"idVentaEstado\":  {\r\n        \"idVentaEstado\": 1,\r\n        \"nombre\": \"pendiente\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventas/update/3",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventas",
+										"update",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateEstadoVentas",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idVenta\": 3,\r\n    \"idUsuario\": {\r\n        \"idUsuario\": 1,\r\n        \"correo\": \"cesar.martinez@mail.com\",\r\n        \"nombres\": \"cesar\",\r\n        \"apellidos\": \"martinez\",\r\n        \"contacto\": \"7634-7337\",\r\n        \"direccion\": \"Paleca\",\r\n        \"password\": \"123456\",\r\n        \"activo\": 1,\r\n        \"rol\": \"1\",\r\n        \"created\": \"2023-06-03\",\r\n        \"idComercio\": {\r\n            \"idComercio\": 1,\r\n            \"nombre\": \"Big Burguer King\",\r\n            \"descripcion\": \"Las mejores Hamburguesas \",\r\n            \"logo\": null,\r\n            \"activo\": 1,\r\n            \"created\": \"2023-06-03\"\r\n        }\r\n    },\r\n    \"fechaAnula\": null,\r\n    \"fechaPago\": null,\r\n    \"observaciones\": \"Prueba Insert venta memo\",\r\n    \"created\": \"2023-06-07T06:00:00.000+00:00\",\r\n    \"idComercio\": {\r\n        \"idComercio\": 1,\r\n        \"nombre\": \"Big Burguer King\",\r\n        \"descripcion\": \"Las mejores Hamburguesas \",\r\n        \"logo\": null,\r\n        \"activo\": 1,\r\n        \"created\": \"2023-06-03\"\r\n    },\r\n    \"idVentaEstado\":  {\r\n        \"idVentaEstado\": 2,\r\n        \"nombre\": \"pagado\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventas/updateestado/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventas",
+										"updateestado",
+										"1"
+									],
+									"query": [
+										{
+											"key": "estado",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ventas Detalle",
+					"item": [
+						{
+							"name": "SearchVentasDetalle",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventasdetalle/search/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventasdetalle",
+										"search",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SearchAllVentasDetalle",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventasdetalle/searchAll/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventasdetalle",
+										"searchAll",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdatelVentasDetalle",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"idVentaDetalle\": 1,\r\n        \"idVenta\": {\r\n            \"idVenta\": 1,\r\n            \"idUsuario\": {\r\n                \"idUsuario\": 1,\r\n                \"correo\": \"cesar.martinez@mail.com\",\r\n                \"nombres\": \"cesar\",\r\n                \"apellidos\": \"martinez\",\r\n                \"contacto\": \"7634-7337\",\r\n                \"direccion\": \"Paleca\",\r\n                \"password\": \"123456\",\r\n                \"activo\": 1,\r\n                \"rol\": \"1\",\r\n                \"created\": \"2023-06-03\",\r\n                \"idComercio\": {\r\n                    \"idComercio\": 1,\r\n                    \"nombre\": \"Big Burguer King\",\r\n                    \"descripcion\": \"Las mejores Hamburguesas \",\r\n                    \"logo\": null,\r\n                    \"activo\": 1,\r\n                    \"created\": \"2023-06-03\"\r\n                }\r\n            },\r\n            \"fechaAnula\": null,\r\n            \"fechaPago\": null,\r\n            \"observaciones\": \"Pimera venta memo\",\r\n            \"created\": \"2023-06-03T06:00:00.000+00:00\",\r\n            \"idComercio\": {\r\n                \"idComercio\": 1,\r\n                \"nombre\": \"Big Burguer King\",\r\n                \"descripcion\": \"Las mejores Hamburguesas \",\r\n                \"logo\": null,\r\n                \"activo\": 1,\r\n                \"created\": \"2023-06-03\"\r\n            },\r\n            \"idVentaEstado\": {\r\n                \"idVentaEstado\": 2,\r\n                \"nombre\": \"pagado\"\r\n            }\r\n        },\r\n        \"idCatalogos\": {\r\n            \"idCatalogos\": 1,\r\n            \"nombre\": \"Hamburguesa\",\r\n            \"descripcion\": \"Deliciosa Hamburguesa con los vegetales más frescos \",\r\n            \"precio\": 5,\r\n            \"imagen\": \"hamburguesa.jpg\",\r\n            \"idComercio\": {\r\n                \"idComercio\": 1,\r\n                \"nombre\": \"Big Burguer King\",\r\n                \"descripcion\": \"Las mejores Hamburguesas \",\r\n                \"logo\": null,\r\n                \"activo\": 1,\r\n                \"created\": \"2023-06-03\"\r\n            },\r\n            \"activo\": 1,\r\n            \"created\": \"2023-06-05\"\r\n        },\r\n        \"cantidad\": 5,\r\n        \"precio\": 5,\r\n        \"total\": 25,\r\n        \"created\": \"2023-06-07\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventasdetalle/update/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventasdetalle",
+										"update",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SaveVentasDetalle",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"idVentaDetalle\": 2,\r\n        \"idVenta\": {\r\n            \"idVenta\": 3,\r\n            \"idUsuario\": {\r\n                \"idUsuario\": 1,\r\n                \"correo\": \"cesar.martinez@mail.com\",\r\n                \"nombres\": \"cesar\",\r\n                \"apellidos\": \"martinez\",\r\n                \"contacto\": \"7634-7337\",\r\n                \"direccion\": \"Paleca\",\r\n                \"password\": \"123456\",\r\n                \"activo\": 1,\r\n                \"rol\": \"1\",\r\n                \"created\": \"2023-06-03\",\r\n                \"idComercio\": {\r\n                    \"idComercio\": 1,\r\n                    \"nombre\": \"Big Burguer King\",\r\n                    \"descripcion\": \"Las mejores Hamburguesas \",\r\n                    \"logo\": null,\r\n                    \"activo\": 1,\r\n                    \"created\": \"2023-06-03\"\r\n                }\r\n            },\r\n            \"fechaAnula\": null,\r\n            \"fechaPago\": null,\r\n            \"observaciones\": \"Pimera venta memo\",\r\n            \"created\": \"2023-06-03T06:00:00.000+00:00\",\r\n            \"idComercio\": {\r\n                \"idComercio\": 1,\r\n                \"nombre\": \"Big Burguer King\",\r\n                \"descripcion\": \"Las mejores Hamburguesas \",\r\n                \"logo\": null,\r\n                \"activo\": 1,\r\n                \"created\": \"2023-06-03\"\r\n            },\r\n            \"idVentaEstado\": {\r\n                \"idVentaEstado\": 2,\r\n                \"nombre\": \"pagado\"\r\n            }\r\n        },\r\n        \"idCatalogos\": {\r\n            \"idCatalogos\": 1,\r\n            \"nombre\": \"Hamburguesa\",\r\n            \"descripcion\": \"Deliciosa Hamburguesa con los vegetales más frescos \",\r\n            \"precio\": 5,\r\n            \"imagen\": \"hamburguesa.jpg\",\r\n            \"idComercio\": {\r\n                \"idComercio\": 1,\r\n                \"nombre\": \"Big Burguer King\",\r\n                \"descripcion\": \"Las mejores Hamburguesas \",\r\n                \"logo\": null,\r\n                \"activo\": 1,\r\n                \"created\": \"2023-06-03\"\r\n            },\r\n            \"activo\": 1,\r\n            \"created\": \"2023-06-05\"\r\n        },\r\n        \"cantidad\": 15,\r\n        \"precio\": 3,\r\n        \"total\": 45,\r\n        \"created\": \"2023-06-07\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/ventasdetalle/save",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"ventasdetalle",
+										"save"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuarios",
+					"item": [
+						{
+							"name": "SearchUsuarios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/usuarios/search/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"usuarios",
+										"search",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SearchAllUsuarios",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/usuarios/search",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"usuarios",
+										"search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SaveUsuarios",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idUsuario\": 2,\r\n    \"correo\": \"david.aguilar@mail.com\",\r\n    \"nombres\": \"David Miguel\",\r\n    \"apellidos\": \"Aguilar Serrano\",\r\n    \"contacto\": \"6588-0256\",\r\n    \"direccion\": \"San salvador\",\r\n    \"password\": \"123456\",\r\n    \"activo\": 1,\r\n    \"rol\": \"2\",\r\n    \"created\": \"2023-06-03\",\r\n    \"idComercio\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/usuarios/save",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"usuarios",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateUsuarios",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idUsuario\": 2,\r\n    \"correo\": \"david.aguilar@mail.com\",\r\n    \"nombres\": \"David Miguel\",\r\n    \"apellidos\": \"Aguilar Serrano\",\r\n    \"contacto\": \"6588-0256\",\r\n    \"direccion\": \"San salvador, San Salbador, Barrio San Miguelito\",\r\n    \"password\": \"123456\",\r\n    \"activo\": 1,\r\n    \"rol\": \"2\",\r\n    \"created\": \"2023-06-03\",\r\n    \"idComercio\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/usuarios/update/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"usuarios",
+										"update",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Comercios",
+					"item": [
+						{
+							"name": "searchComercio",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/comercio/search/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"comercio",
+										"search",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SaveComercio",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idComercio\": 2,\r\n    \"nombre\": \"Pet Frendly\",\r\n    \"descripcion\": \"Productos de alta calidad para tus amadas mascotas\",\r\n    \"logo\": null,\r\n    \"activo\": 1,\r\n    \"created\": \"2023-06-07\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/comercio/save",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"comercio",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateComercio",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"idComercio\": 2,\r\n    \"nombre\": \"Pet Frendly\",\r\n    \"descripcion\": \"Productos de alta calidad para tus amadas mascotas\",\r\n    \"logo\": \"imagen.jpg\",\r\n    \"activo\": 1,\r\n    \"created\": \"2023-06-07\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/comercio/update/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"comercio",
+										"update",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Catalogos",
+					"item": [
+						{
+							"name": "SearchCatalogo",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/catalogos/search/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"catalogos",
+										"search",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SaveCatalogo",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"idCatalogos\": 2,\r\n        \"nombre\": \"Nachos Locos\",\r\n        \"descripcion\": \"Deliciosa Nachos acomáñados de Chili con carne\",\r\n        \"precio\": 2.75,\r\n        \"imagen\": \"nachos.jpg\",\r\n        \"idComercio\": {\r\n            \"idComercio\": 1,\r\n            \"nombre\": \"Big Burguer King\",\r\n            \"descripcion\": \"Las mejores Hamburguesas \",\r\n            \"logo\": null,\r\n            \"activo\": 1,\r\n            \"created\": \"2023-06-03\"\r\n        },\r\n        \"activo\": 1,\r\n        \"created\": \"2023-06-05\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/catalogos/save",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"catalogos",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateCatalogo",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"idCatalogos\": 2,\r\n        \"nombre\": \"Nachos Locos\",\r\n        \"descripcion\": \"Deliciosa Nachos acomáñados de Chili con carne\",\r\n        \"precio\": 2.75,\r\n        \"imagen\": \"nachosFresh.jpg\",\r\n        \"idComercio\": {\r\n            \"idComercio\": 1,\r\n            \"nombre\": \"Big Burguer King\",\r\n            \"descripcion\": \"Las mejores Hamburguesas \",\r\n            \"logo\": null,\r\n            \"activo\": 1,\r\n            \"created\": \"2023-06-03\"\r\n        },\r\n        \"activo\": 1,\r\n        \"created\": \"2023-06-05\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/catalogos/update/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"catalogos",
+										"update",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost"
+		},
+		{
+			"key": "Port",
+			"value": "8080",
+			"type": "string"
+		}
+	]
+}
