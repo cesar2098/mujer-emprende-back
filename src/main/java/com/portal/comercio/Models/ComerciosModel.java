@@ -25,7 +25,7 @@ public class ComerciosModel implements Serializable {
     @Getter
     @Setter
     @Column(name = "id_comercio")
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idComercio;
 
     @Getter

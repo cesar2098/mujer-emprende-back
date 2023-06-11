@@ -89,7 +89,7 @@ public class comercioServicesImpl implements comercioServices{
 			rsp.setCodigo(200);
             rsp.setMensaje("Comercio guardado correctamente");
 			rsp.setRespuesta(null);
-            comercioRepo.save(null);
+            comercioRepo.save(comercios);
 		} catch (Exception e) {
 			rsp.setCodigo(500);
             rsp.setMensaje("Error al guardar el comercio");
