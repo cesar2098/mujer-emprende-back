@@ -11,6 +11,8 @@ import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
@@ -25,6 +27,7 @@ public class UsuariosModel implements Serializable{
     @Getter
     @Setter
     @Column(name = "id_usuario")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
 
     @Getter

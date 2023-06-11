@@ -266,6 +266,16 @@
 						{
 							"name": "SearchAllUsuarios",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwtToken}}",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -290,7 +300,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"idUsuario\": 2,\r\n    \"correo\": \"david.aguilar@mail.com\",\r\n    \"nombres\": \"David Miguel\",\r\n    \"apellidos\": \"Aguilar Serrano\",\r\n    \"contacto\": \"6588-0256\",\r\n    \"direccion\": \"San salvador\",\r\n    \"password\": \"123456\",\r\n    \"activo\": 1,\r\n    \"rol\": \"2\",\r\n    \"created\": \"2023-06-03\",\r\n    \"idComercio\": null\r\n}",
+									"raw": "{\r\n    \"correo\": \"kimberly.chavez@mail.com\",\r\n    \"nombres\": \"Kimberly \",\r\n    \"apellidos\": \"Chavez\",\r\n    \"contacto\": \"\",\r\n    \"direccion\": \"San salvador\",\r\n    \"password\": \"123456\",\r\n    \"activo\": 1,\r\n    \"rol\": \"admin\",\r\n    \"created\": \"2023-06-03\",\r\n    \"idComercio\": null\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -363,6 +373,26 @@
 										"comercio",
 										"search",
 										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "searchAllComercio",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/comercio/search",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"comercio",
+										"search"
 									]
 								}
 							},
@@ -454,6 +484,37 @@
 							"response": []
 						},
 						{
+							"name": "ProductosComercio",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJDaE1scDFyMkpQNDVwZDJpZlFqVUViM2pqZm51UWNKbUowSGo1TEZrTGlvIn0.eyJleHAiOjE2NjE4OTMzNzIsImlhdCI6MTY2MTg5MzA3MiwiYXV0aF90aW1lIjoxNjYxODkzMDcxLCJqdGkiOiIzM2JlMWFjMy1lZTBjLTQ2ZmQtOTM4Ny0wN2JmODNkYzBmNDYiLCJpc3MiOiJodHRwczovL3Nzby1kZXNhLW1kdy1wb29sLmFwcHMudWRhMDEucm5wbi5nb2Iuc3YvYXV0aC9yZWFsbXMvdXN1YXJpb3NhZCIsImF1ZCI6WyJyZWFsbS1tYW5hZ2VtZW50IiwiYWNjb3VudCJdLCJzdWIiOiI2MDk4MTkwYi1hNWE2LTQxOWEtODQ3NC0yNzM3OGM5YjdjNzgiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJmcm9udGVuZC1ybnBtIiwibm9uY2UiOiI2NzA5MzgzOC03M2M2LTRkNmYtOGY5Ni1iNjk4NTYxZWY4ZTkiLCJzZXNzaW9uX3N0YXRlIjoiYTYxOTMwMzEtNjA2Mi00MTllLWIyZjQtM2I5YzY2ZjIyMGNkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwOi8vbG9jYWxob3N0OjQyMDAiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwiZGVmYXVsdC1yb2xlcy11c3Vhcmlvc2FkIiwidW1hX2F1dGhvcml6YXRpb24iLCJBcHBBZG1pblJvbGUiXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbIm1hbmFnZS1yZWFsbSIsIm1hbmFnZS11c2VycyJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInNpZCI6ImE2MTkzMDMxLTYwNjItNDE5ZS1iMmY0LTNiOWM2NmYyMjBjZCIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwibmFtZSI6IkNlc2FyIEZyYW5jaXNjbyBNYXJ0aW5leiBSb2RyaWd1ZXoiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJjZXNhci5yb2RyaWd1ZXoiLCJnaXZlbl9uYW1lIjoiQ2VzYXIgRnJhbmNpc2NvIiwiZmFtaWx5X25hbWUiOiJNYXJ0aW5leiBSb2RyaWd1ZXoifQ.fMEYjePr6FULWcHbRTBl-IRBwNWtX5FBYNrcsc901AKmgYsP-dB0xryKtEx28q0qY5zKJ1UM-iFJoAuGkufzsYdd7gRX2Gmjdd3IIrNKBh2ToN9C5zRofbdUm4xBHYdnVVEkuOnVmGf_3nSGhpNFJcZYCDAm1uzGUJfFS-7j3vCbR2HkTxqTfX4iYVQiln7tV-WHvI2JWXhVXLu-mzQXZVF68U-45059cWIOxYfG3F04JyhRGaOK_p37Qq-rVjWreRdMLeTI7HUaoE0dc_-Br9CWmvcyvLaov1k2l0c_Xn98UZXbWQHqY3AoGvcmnqg704Foi8RLqAYEpHi_AdVMRw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/catalogos/productcomercio/2",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"catalogos",
+										"productcomercio",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "SaveCatalogo",
 							"request": {
 								"method": "POST",
@@ -507,6 +568,60 @@
 										"catalogos",
 										"update",
 										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Autentificar",
+					"item": [
+						{
+							"name": "AuthLogin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"// Parsea la respuesta JSON en un objeto",
+											"const responseJson = pm.response.json();",
+											"",
+											"// Obtiene el valor de jwtToken del objeto respuesta",
+											"const jwtToken = responseJson.respuesta.jwtToken;",
+											"",
+											"// Guarda el valor de jwtToken en una variable de entorno",
+											"pm.environment.set(\"jwtToken\", jwtToken);",
+											"",
+											"console.log(pm.environment.get(\"jwtToken\"));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"usuario\":\"boxi@hotmail.com\",\n    \"clave\":\"123456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}:{{Port}}/comercio/auth",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"port": "{{Port}}",
+									"path": [
+										"comercio",
+										"auth"
 									]
 								}
 							},

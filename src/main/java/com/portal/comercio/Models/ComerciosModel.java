@@ -8,6 +8,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
@@ -23,6 +25,7 @@ public class ComerciosModel implements Serializable {
     @Getter
     @Setter
     @Column(name = "id_comercio")
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idComercio;
 
     @Getter

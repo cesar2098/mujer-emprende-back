@@ -13,6 +13,8 @@ import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
@@ -26,8 +28,9 @@ public class CatalogosModel implements Serializable{
 
     @Id
     @Getter
-    @Setter
+    @Setter    
     @Column(name = "id_catalogo")
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCatalogos;
 
     @Getter
