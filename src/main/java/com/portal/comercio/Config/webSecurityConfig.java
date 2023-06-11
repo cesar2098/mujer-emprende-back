@@ -23,7 +23,7 @@ public class webSecurityConfig {
     SecurityFilterChain web(HttpSecurity http) throws Exception{
         http.csrf().disable() // (2)
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/comercio/auth/").permitAll()
+                        .requestMatchers("/comercio/auth/**").permitAll()
                         .requestMatchers("/comercio/catalogos/search/**").permitAll()
                         .requestMatchers("/comercio/comercio/search/**").permitAll()
                         .requestMatchers("/comercio/usuarios/search/").hasRole("admin")
