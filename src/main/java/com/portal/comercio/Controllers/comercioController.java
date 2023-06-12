@@ -1,7 +1,9 @@
 package com.portal.comercio.Controllers;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.portal.comercio.Models.CatalogosModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,6 +43,11 @@ public class comercioController {
 	@RequestMapping(method = RequestMethod.PUT, value = "/update/{codigo}")
 	public responseDto updateComercios(@RequestBody ComerciosModel comercios, @PathVariable Long codigo) {
 		return comercio.updateComercios(comercios, codigo);
+	}
+
+	@RequestMapping("/{comercioId}/productos")
+	public responseDto getProductosPorComercio(@PathVariable Long comercioId) {
+		return comercio.getProductosPorComercio(comercioId);
 	}
 
 	// @RequestMapping(method = RequestMethod.PUT, value = "/updateestado/{codigo}")

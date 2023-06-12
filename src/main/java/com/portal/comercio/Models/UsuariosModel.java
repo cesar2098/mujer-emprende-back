@@ -1,7 +1,6 @@
 package com.portal.comercio.Models;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.time.LocalDate;
 
 import jakarta.persistence.Id;
@@ -29,12 +28,12 @@ public class UsuariosModel implements Serializable{
     @Setter
     @Column(name = "id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUsuario;
+    private Long id;
 
     @Getter
     @Setter
     @Column(name = "correo")
-    private String correo;
+    private String username;
 
     @Getter
     @Setter

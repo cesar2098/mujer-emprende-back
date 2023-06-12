@@ -34,7 +34,7 @@ public class userDetailsServiceImpl implements UserDetailsService {
         //System.out.println("EMAIL: " + email);
         UsuariosModel userM = userRepo.findAll()
                 .stream()
-                .filter(e -> e.getCorreo().equals(email))
+                .filter(e -> e.getUsername().equals(email))
                 .findFirst()
                 .orElse(null);
         //if(userM.equals(null))

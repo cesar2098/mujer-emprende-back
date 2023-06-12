@@ -4,6 +4,7 @@ import com.portal.comercio.Models.UsuariosModel;
 import com.portal.comercio.Repository.usuariosRepository;
 import com.portal.comercio.dto.responseDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -60,7 +61,7 @@ public class usuariosServicesImpl implements usuariosServices {
                 usuario.setApellidos(user.getApellidos());
                 usuario.setContacto(user.getContacto());
                 usuario.setCreated(user.getCreated());
-                usuario.setCorreo(user.getCorreo());
+                usuario.setUsername(user.getUsername());
                 usuario.setDireccion(user.getDireccion());
                 usuario.setNombres(user.getNombres());
                 usuario.setIdComercio(user.getIdComercio());
@@ -109,5 +110,30 @@ public class usuariosServicesImpl implements usuariosServices {
             rsp.setRespuesta(e.getMessage());
         }
         return rsp;
+    }
+
+    @Override
+    public responseDto findByUsername(String username) {
+        UsuariosModel userM = userRepo.findAll()
+                .stream()
+                .filter(e -> e.getUsername().equals(username))
+                .findFirst()
+                .orElse(null);
+        userM.setPassword(new BCryptPasswordEncoder().encode(userM.getPassword()));
+        return new responseDto(200,"Usuario Encontrado", userM);
+    }
+
+    public responseDto cambiarContrasena(String username, String nuevaContrasena) {
+        UsuariosModel user = (UsuariosModel) userRepo.findByUsername(username).getRespuesta();
+
+        if (user != null) {
+            user.setPassword(nuevaContrasena);
+            userRepo.save(user);
+            rsp.setResponse(200,"Contraseña cambiada",user);
+        }else{
+            rsp.setResponse(400,"Contrseña no cambiada");
+        }
+        return rsp;
+        //return false;
     }
 }

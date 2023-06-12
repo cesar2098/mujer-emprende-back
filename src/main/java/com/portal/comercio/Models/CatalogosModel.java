@@ -31,7 +31,7 @@ public class CatalogosModel implements Serializable{
     @Setter
     @Column(name = "id_catalogo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idCatalogos;
+    private Long id;
 
     @Getter
     @Setter
@@ -68,4 +68,10 @@ public class CatalogosModel implements Serializable{
     @Setter
     @Column(name = "created")
     private LocalDate created;
+
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "comercio_id")
+    private ComerciosModel comercio;
 }

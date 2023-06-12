@@ -3,6 +3,7 @@ package com.portal.comercio.Services;
 import java.util.List;
 import java.util.Optional;
 
+import com.portal.comercio.Models.CatalogosModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -96,6 +97,19 @@ public class comercioServicesImpl implements comercioServices{
             rsp.setRespuesta(e.getMessage());
 		}
 		return rsp;
+	}
+
+
+	public responseDto getProductosPorComercio(Long comercioId) {
+		Optional<ComerciosModel> comercioOptional = comercioRepo.findById(comercioId);
+
+		if (comercioOptional.isPresent()) {
+			ComerciosModel comercio = comercioOptional.get();
+			rsp.setResponse(200,"Catalogo encontrado.", comercio.getProductos());
+			//return comercio.getProductos();
+		}
+		return rsp;
+		//return Collections.emptyList();
 	}
 
 	// @Override

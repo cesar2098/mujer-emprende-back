@@ -30,7 +30,7 @@ public class VentasModel implements Serializable{
     @Setter
     @Column(name = "id_venta")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idVenta;
+    private Long id;
 
     @Getter
     @Setter
@@ -41,12 +41,12 @@ public class VentasModel implements Serializable{
     @Getter
     @Setter
     @Column(name = "fecha_anula")
-    private Date fechaAnula;
+    private LocalDate fechaAnula;
 
     @Getter
     @Setter
     @Column(name = "fecha_pago")
-    private Date fechaPago;
+    private LocalDate fechaPago;
 
     @Getter
     @Setter

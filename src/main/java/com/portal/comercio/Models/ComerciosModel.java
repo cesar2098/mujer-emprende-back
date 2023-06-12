@@ -3,15 +3,11 @@ package com.portal.comercio.Models;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
 
 @Entity
 @Table(name = "comercios", catalog = "", schema = "comercios")
@@ -27,7 +23,7 @@ public class ComerciosModel implements Serializable {
     @Setter
     @Column(name = "id_comercio")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idComercio;
+    private Long id;
 
     @Getter
     @Setter
@@ -54,6 +50,10 @@ public class ComerciosModel implements Serializable {
     @Column(name = "created")
     private LocalDate created;
 
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "comercio")
+    private List<CatalogosModel> productos;
     // @Getter
     // @Setter
     // @ManyToOne(fetch = FetchType.EAGER)
