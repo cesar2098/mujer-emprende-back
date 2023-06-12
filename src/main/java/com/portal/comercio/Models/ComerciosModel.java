@@ -2,12 +2,15 @@ package com.portal.comercio.Models;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
@@ -17,12 +20,13 @@ public class ComerciosModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public ComerciosModel() {
-    }   
+    }
 
     @Id
     @Getter
     @Setter
     @Column(name = "id_comercio")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idComercio;
 
     @Getter
@@ -48,8 +52,8 @@ public class ComerciosModel implements Serializable {
     @Getter
     @Setter
     @Column(name = "created")
-    private Date created;
-    
+    private LocalDate created;
+
     // @Getter
     // @Setter
     // @ManyToOne(fetch = FetchType.EAGER)

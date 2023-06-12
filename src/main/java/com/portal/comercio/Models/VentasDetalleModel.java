@@ -2,6 +2,7 @@ package com.portal.comercio.Models;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -11,6 +12,8 @@ import lombok.Getter;
 import lombok.Setter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
@@ -21,11 +24,12 @@ public class VentasDetalleModel implements Serializable{
 
     public VentasDetalleModel() {
     }
-    
+
     @Id
     @Getter
     @Setter
     @Column(name = "id_venta_detalle")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVentaDetalle;
 
     @Getter
@@ -58,5 +62,6 @@ public class VentasDetalleModel implements Serializable{
     @Getter
     @Setter
     @Column(name = "created")
-    private Date created;
+    private LocalDate created;
+
 }

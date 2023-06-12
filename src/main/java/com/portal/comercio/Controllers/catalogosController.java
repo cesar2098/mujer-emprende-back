@@ -1,11 +1,14 @@
 package com.portal.comercio.Controllers;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portal.comercio.Models.*;
@@ -17,11 +20,12 @@ import com.portal.comercio.dto.responseDto;
 @RequestMapping("comercio/catalogos")
 @CrossOrigin(origins = "http://localhost:4200")
 public class catalogosController {
-	@Autowired
-	catalogosServices catalogosservice;
-	
-	@RequestMapping(method = RequestMethod.POST, value = "/save")
-    public responseDto saveCatalogos(@RequestBody CatalogosModel cata){
+    @Autowired
+    catalogosServices catalogosservice;
+
+    @RequestMapping(method = RequestMethod.POST, value = "/save")
+    public responseDto saveCatalogos(@RequestBody CatalogosModel cata, @RequestParam(name = "created", defaultValue = "#{T(java.time.LocalDate).now()}", required = true) LocalDate created){
+        cata.setCreated(created);
         return catalogosservice.saveCatalogos(cata);
     }
 

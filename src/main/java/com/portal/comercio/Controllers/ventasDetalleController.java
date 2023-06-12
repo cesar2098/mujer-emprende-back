@@ -1,11 +1,14 @@
 package com.portal.comercio.Controllers;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portal.comercio.Models.VentasDetalleModel;
@@ -16,12 +19,13 @@ import com.portal.comercio.dto.responseDto;
 @RequestMapping("comercio/ventasdetalle")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ventasDetalleController {
-    
+
     @Autowired
     ventasDetalleServices ventaDetalle;
 
     @RequestMapping(method = RequestMethod.POST, value = "/save")
-    public responseDto saveVentasDetalle(@RequestBody VentasDetalleModel ventas){
+    public responseDto saveVentasDetalle(@RequestBody VentasDetalleModel ventas, @RequestParam(name = "created", defaultValue = "#{T(java.time.LocalDate).now()}", required = true) LocalDate created){
+        ventas.setCreated(created);
         return ventaDetalle.saveVentasDetalle(ventas);
     }
 
