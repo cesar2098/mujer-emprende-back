@@ -2,6 +2,7 @@ package com.portal.comercio.Controllers;
 
 import com.portal.comercio.Models.UsuariosModel;
 import com.portal.comercio.Services.usuariosServices;
+import com.portal.comercio.dto.responseDtoEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,9 +45,9 @@ public class usuarioController {
     public responseDto cambiarContrasena(@PathVariable String username, @RequestBody String nuevaContrasena) {
         if (usuariosSrvc.cambiarContrasena(username, nuevaContrasena).getCodigo() == 200 ) {
             //return ResponseEntity.ok("Contraseña cambiada exitosamente");
-            return new responseDto(200,"Contraseña cambiada exitosamente");
+            return new responseDto(200,"Contraseña cambiada exitosamente", responseDtoEnum.INFO);
         } else {
-            return new responseDto(400, "Contraseña no cambiada");
+            return new responseDto(400, "Contraseña no cambiada",responseDtoEnum.ERROR);
         }
     }
 }

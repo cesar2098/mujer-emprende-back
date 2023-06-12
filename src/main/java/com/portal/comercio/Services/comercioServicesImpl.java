@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.portal.comercio.Models.CatalogosModel;
+import com.portal.comercio.dto.responseDtoEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -105,7 +106,7 @@ public class comercioServicesImpl implements comercioServices{
 
 		if (comercioOptional.isPresent()) {
 			ComerciosModel comercio = comercioOptional.get();
-			rsp.setResponse(200,"Catalogo encontrado.", comercio.getProductos());
+			rsp.setResponse(200,"Catalogo encontrado.", comercio.getProductos(), responseDtoEnum.INFO);
 			//return comercio.getProductos();
 		}
 		return rsp;

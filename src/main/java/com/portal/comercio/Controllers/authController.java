@@ -6,6 +6,7 @@ import com.portal.comercio.Models.TokenInfo;
 import com.portal.comercio.Services.jwtUtilService;
 import com.portal.comercio.Utils.utilClass;
 import com.portal.comercio.dto.responseDto;
+import com.portal.comercio.dto.responseDtoEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -37,6 +38,6 @@ public class authController {
 
         final String jwt = jwtUService.generateToken(userDetails);
 
-        return new responseDto(200, "Token Generado", new TokenInfo(jwt));
+        return new responseDto(200, "Token Generado", new TokenInfo(jwt), responseDtoEnum.INFO);
     }
 }

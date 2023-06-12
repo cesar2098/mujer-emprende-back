@@ -3,6 +3,7 @@ package com.portal.comercio.Services;
 import com.portal.comercio.Models.UsuariosModel;
 import com.portal.comercio.Repository.usuariosRepository;
 import com.portal.comercio.dto.responseDto;
+import com.portal.comercio.dto.responseDtoEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -40,6 +41,6 @@ public class userDetailsServiceImpl implements UserDetailsService {
         //if(userM.equals(null))
          //   System.out.println("ENTIDAD NULA");
         userM.setPassword(new BCryptPasswordEncoder().encode(userM.getPassword()));
-        return new responseDto(200,"Usuario Encontrado", userM);
+        return new responseDto(200,"Usuario Encontrado", userM, responseDtoEnum.INFO);
     }
 }
