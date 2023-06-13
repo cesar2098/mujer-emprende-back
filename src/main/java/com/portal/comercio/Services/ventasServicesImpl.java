@@ -122,11 +122,18 @@ public class ventasServicesImpl implements ventasServices {
         return rsp;
     }
 
-
-    //No se envio el metodo completo
     @Override
     public responseDto anularVenta(Long ventaId, Date fechaNula, String observaciones) {
-        return new responseDto(400,"NADA",responseDtoEnum.ERROR);
+        Optional<VentasModel> ventaOptional = ventaRepo.findById(ventaId);
+
+        if (ventaOptional.isPresent()) {
+            VentasModel venta = ventaOptional.get();
+            venta.setFechaNula(fechaNula);
+            venta.setObservaciones(observaciones);
+            ventaRepo.save(venta);
+            return new responseDto(200, "Venta Anulada",responseDtoEnum.INFO);
+        }
+        return new responseDto(400,"La Venta no ha sido anulada",responseDtoEnum.ERROR);
     }
 
     @Override
