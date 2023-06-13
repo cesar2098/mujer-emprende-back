@@ -52,7 +52,7 @@ public class ComerciosModel implements Serializable {
 
     @Getter
     @Setter
-    @OneToMany(mappedBy = "comercio")
+    @OneToMany(mappedBy = "idComercio")
     private List<CatalogosModel> productos;
     // @Getter
     // @Setter

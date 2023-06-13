@@ -69,9 +69,9 @@ public class CatalogosModel implements Serializable{
     @Column(name = "created")
     private LocalDate created;
 
-    @Getter
-    @Setter
-    @ManyToOne
-    @JoinColumn(name = "comercio_id")
-    private ComerciosModel comercio;
+    // @Getter
+    // @Setter
+    // @ManyToOne
+    // @JoinColumn(name = "comercio_id")
+    // private ComerciosModel comercio;
 }
