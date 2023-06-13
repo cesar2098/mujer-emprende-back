@@ -9,6 +9,7 @@ public class responseDto {
     private responseDtoEnum rspEnum;
     public responseDto() {
     }
+<<<<<<< HEAD
 
     public responseDto(int codigo, String mensaje, Object respuesta, responseDtoEnum rspEnum){
         this.codigo = codigo;
@@ -40,4 +41,6 @@ public class responseDto {
         this.mensaje = String.format("[%s]: %s", rspEnum.name(), mensaje);
         this.rspEnum = rspEnum;
     }
+=======
+>>>>>>> 6b5e589 (Revert "Merge remote-tracking branch 'GitHub/userBranch' into Desarrollo")
 }
