@@ -28,7 +28,7 @@ public class CatalogosModel implements Serializable{
 
     @Id
     @Getter
-    @Setter
+    @Setter    
     @Column(name = "id_catalogo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCatalogos;
