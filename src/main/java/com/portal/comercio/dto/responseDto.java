@@ -6,7 +6,7 @@ public class responseDto {
     private int codigo;
     private String mensaje;
     private Object respuesta;
-
+    private responseDtoEnum rspEnum;
     public responseDto() {
     }
 }

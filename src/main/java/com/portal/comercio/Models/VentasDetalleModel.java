@@ -2,6 +2,7 @@ package com.portal.comercio.Models;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -23,7 +24,7 @@ public class VentasDetalleModel implements Serializable{
 
     public VentasDetalleModel() {
     }
-    
+
     @Id
     @Getter
     @Setter
@@ -61,5 +62,6 @@ public class VentasDetalleModel implements Serializable{
     @Getter
     @Setter
     @Column(name = "created")
-    private Date created;
+    private LocalDate created;
+
 }

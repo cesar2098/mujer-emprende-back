@@ -2,6 +2,7 @@ package com.portal.comercio.Controllers;
 
 import com.portal.comercio.Models.UsuariosModel;
 import com.portal.comercio.Services.usuariosServices;
+import com.portal.comercio.dto.responseDtoEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,12 +32,22 @@ public class usuarioController {
     }
     @RequestMapping(method = RequestMethod.DELETE,value = "/delete")
     public responseDto deleteUsuario(@RequestBody UsuariosModel usuario){
-        UsuariosModel userTmp =(UsuariosModel)usuariosSrvc.getUsuariosId(usuario.getIdUsuario()).getRespuesta();
+        UsuariosModel userTmp =(UsuariosModel)usuariosSrvc.getUsuariosId(usuario.getId()).getRespuesta();
         return usuariosSrvc.deleteUsuarios(userTmp);
     }
     @RequestMapping(method = RequestMethod.DELETE, value = "/delete/{id}")
     public responseDto deleteUsuarioId(@PathVariable Long id){
         UsuariosModel userTmp =(UsuariosModel)usuariosSrvc.getUsuariosId(id).getRespuesta();
         return usuariosSrvc.deleteUsuarios(userTmp);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/{username}/contrasena")
+    public responseDto cambiarContrasena(@PathVariable String username, @RequestBody String nuevaContrasena) {
+        if (usuariosSrvc.cambiarContrasena(username, nuevaContrasena).getCodigo() == 200 ) {
+            //return ResponseEntity.ok("Contraseña cambiada exitosamente");
+            return new responseDto(200,"Contraseña cambiada exitosamente", responseDtoEnum.INFO);
+        } else {
+            return new responseDto(400, "Contraseña no cambiada",responseDtoEnum.ERROR);
+        }
     }
 }

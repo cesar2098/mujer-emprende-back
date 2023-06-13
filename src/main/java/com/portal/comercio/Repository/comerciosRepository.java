@@ -8,5 +8,5 @@ import com.portal.comercio.Models.ComerciosModel;
 import com.portal.comercio.Models.VentasModel;
 
 public interface comerciosRepository extends JpaRepository<ComerciosModel, Long> {
-	public Optional<VentasModel> findByIdComercio(Long codigo);
+	//public Optional<VentasModel> findByIdComercio(Long codigo);
 }

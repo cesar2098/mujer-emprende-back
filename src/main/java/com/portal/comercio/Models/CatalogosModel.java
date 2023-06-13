@@ -3,7 +3,7 @@ package com.portal.comercio.Models;
 
 import java.io.Serializable;
 import java.sql.Date;
-
+import java.time.LocalDate;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -24,13 +24,13 @@ public class CatalogosModel implements Serializable{
     private static final long serialVersionUID = 1L;
 
     public CatalogosModel() {
-    }   
+    }
 
     @Id
     @Getter
     @Setter    
     @Column(name = "id_catalogo")
-     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCatalogos;
 
     @Getter
@@ -67,6 +67,11 @@ public class CatalogosModel implements Serializable{
     @Getter
     @Setter
     @Column(name = "created")
-    private Date created;
+    private LocalDate created;
 
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "comercio_id")
+    private ComerciosModel comercio;
 }

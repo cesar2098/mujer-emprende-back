@@ -25,11 +25,11 @@ public class ventasDetalleServicesImpl implements ventasDetalleServices {
             if (!ventaOptional.isEmpty()) {
                 //VentasDetalle ventaDetalle = ventaOptional.get(0);
                 rsp.setCodigo(200);
-                rsp.setMensaje("Venta encontrada");
+                rsp.setMensaje("[INFO]: Venta encontrada");
                 rsp.setRespuesta(ventaOptional);
             } else {
                 rsp.setCodigo(404);
-                rsp.setMensaje("Venta no encontrada");
+                rsp.setMensaje("[ERROR]: Venta no encontrada");
             }
         } catch (Exception e) {
             rsp.setCodigo(500);
