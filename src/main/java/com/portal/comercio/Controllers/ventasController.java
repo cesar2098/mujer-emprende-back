@@ -43,9 +43,11 @@ public class ventasController {
     public responseDto updateEstado(@RequestBody VentasModel ventas, @PathVariable Long codigo){
         return venta.updateEstado(ventas, codigo);
     }
+
+
     @RequestMapping("/{ventaId}/anular")
     public responseDto anularVenta(@PathVariable Long ventaId, @RequestBody VentasModel request) {
-        if (venta.anularVenta(ventaId, request.getFechaAnula(), request.getObservaciones()).getCodigo() == 200) {
+        if (venta.anularVenta(ventaId, request.getFechaNula(), request.getObservaciones()).getCodigo() == 200) {
             return new responseDto(200, "Venta anulada exitosamente", responseDtoEnum.INFO);
             //return ResponseEntity.ok("Venta anulada exitosamente");
         } else {
@@ -53,4 +55,5 @@ public class ventasController {
             return new responseDto(400, "Error al anular venta", responseDtoEnum.ERROR);
         }
     }
+
 }

@@ -1,6 +1,7 @@
 package com.portal.comercio.Services;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 
 import com.portal.comercio.dto.responseDtoEnum;
@@ -55,7 +56,7 @@ public class ventasServicesImpl implements ventasServices {
             Optional<VentasModel> ventaOptional = ventaRepo.findById(codigo);
             if (ventaOptional.isPresent()) {
                 VentasModel venta = ventaOptional.get();
-                venta.setFechaAnula(ventas.getFechaAnula());
+                venta.setFechaNula(ventas.getFechaNula());
                 venta.setFechaPago(ventas.getFechaPago());
                 venta.setObservaciones(ventas.getObservaciones());               
                /* rsp.setCodigo(200);
@@ -124,12 +125,12 @@ public class ventasServicesImpl implements ventasServices {
 
     //No se envio el metodo completo
     @Override
-    public responseDto anularVenta(Long ventaId, LocalDate fechaNula, String observaciones) {
-        return null;
+    public responseDto anularVenta(Long ventaId, Date fechaNula, String observaciones) {
+        return new responseDto(400,"NADA",responseDtoEnum.ERROR);
     }
 
     @Override
-    public responseDto marcarVentaComoPagada(Long ventaId, LocalDate fechaPago) {
+    public responseDto marcarVentaComoPagada(Long ventaId, Date fechaPago) {
         Optional<VentasModel> ventaOptional = ventaRepo.findById(ventaId);
 
         if (ventaOptional.isPresent()) {

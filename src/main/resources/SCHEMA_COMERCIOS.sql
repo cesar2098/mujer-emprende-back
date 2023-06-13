@@ -122,3 +122,19 @@ CREATE TABLE comercios.ventas_detalle (
 	CONSTRAINT ventas_detalle_fk FOREIGN KEY (id_catalogo) REFERENCES comercios.catalogos(id_catalogo) ON DELETE CASCADE,
 	CONSTRAINT ventas_detalle_fk_1 FOREIGN KEY (id_venta) REFERENCES comercios.ventas(id_venta) ON DELETE CASCADE
 );
+
+-- Funcion para encriptar a usuarios
+CREATE OR REPLACE FUNCTION encriptar_md5()
+    RETURNS trigger AS
+$BODY$
+BEGIN
+    NEW."password" := md5(NEW."password");
+    RETURN NEW;
+END;
+$BODY$
+    LANGUAGE plpgsql;
+
+create or replace TRIGGER trigger_encriptar_md5
+    BEFORE INSERT ON comercios.usuarios
+    FOR EACH ROW
+EXECUTE FUNCTION encriptar_md5();
