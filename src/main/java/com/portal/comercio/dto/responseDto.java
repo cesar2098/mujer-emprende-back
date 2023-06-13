@@ -9,38 +9,8 @@ public class responseDto {
     private responseDtoEnum rspEnum;
     public responseDto() {
     }
-<<<<<<< HEAD
-
-    public responseDto(int codigo, String mensaje, Object respuesta, responseDtoEnum rspEnum){
-        this.codigo = codigo;
-        this.mensaje = String.format("[%s]: %s", rspEnum.name(), mensaje);
-        this.respuesta = respuesta;
-        this.rspEnum = rspEnum;
-    }
-    public responseDto(int codigo, String mensaje, responseDtoEnum rspEnum){
-        this.codigo = codigo;
-        this.mensaje = String.format("[%s]: %s", rspEnum.name(), mensaje);
-        this.respuesta = null;
-        this.rspEnum = rspEnum;
-    }
-    private void clear(){
-        this.respuesta = null;
-        this.mensaje = "";
-        this.codigo = -1;
-    }
-    public void setResponse(int codigo, String mensaje, Object respuesta,  responseDtoEnum rspEnum){
-        clear();
-        this.codigo = codigo;
-        this.mensaje = String.format("[%s]: %s", rspEnum.name(), mensaje);
-        this.respuesta = respuesta;
-        this.rspEnum = rspEnum;
-    }
-    public void setResponse(int codigo, String mensaje,  responseDtoEnum rspEnum){
-        clear();
-        this.codigo = codigo;
-        this.mensaje = String.format("[%s]: %s", rspEnum.name(), mensaje);
-        this.rspEnum = rspEnum;
-    }
 =======
 >>>>>>> 6b5e589 (Revert "Merge remote-tracking branch 'GitHub/userBranch' into Desarrollo")
+=======
+>>>>>>> e1a7c9630644f1974a4aeb879b75d5f38fbf3c27
 }
