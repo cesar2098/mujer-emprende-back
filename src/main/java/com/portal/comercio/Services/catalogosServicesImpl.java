@@ -97,4 +97,46 @@ public class catalogosServicesImpl implements catalogosServices{
         } 
         return rsp;
     }
+
+    @Override
+    public responseDto disableProducto(Long codigo) {
+        try {
+            Optional<CatalogosModel> catalogosOptional = catalogosRepo.findById(codigo);
+            if (catalogosOptional.isPresent()) {
+                CatalogosModel producto = catalogosOptional.get();
+                producto.setActivo(0);
+                rsp.setCodigo(200);
+                rsp.setMensaje("producto desactivado");
+                catalogosRepo.save(producto);
+            } else {
+                rsp.setCodigo(404);
+                rsp.setMensaje("producto no desactivado");
+            }
+        } catch (Exception e) {
+            rsp.setCodigo(500);
+            rsp.setMensaje("Error al modificar el producto");
+        }
+        return rsp;
+    }
+
+    @Override
+    public responseDto activateProducto(Long codigo) {
+        try {
+            Optional<CatalogosModel> catalogosOptional = catalogosRepo.findById(codigo);
+            if (catalogosOptional.isPresent()) {
+                CatalogosModel producto = catalogosOptional.get();
+                producto.setActivo(1);
+                rsp.setCodigo(200);
+                rsp.setMensaje("producto activado");
+                catalogosRepo.save(producto);
+            } else {
+                rsp.setCodigo(404);
+                rsp.setMensaje("producto no activado");
+            }
+        } catch (Exception e) {
+            rsp.setCodigo(500);
+            rsp.setMensaje("Error al modificar el producto");
+        }
+        return rsp;
+    }
 }

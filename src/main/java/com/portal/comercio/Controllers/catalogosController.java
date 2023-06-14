@@ -39,4 +39,12 @@ public class catalogosController {
     public responseDto updateCatalogos(@RequestBody CatalogosModel cata, @PathVariable Long codigo){
         return catalogosservice.updateCatalogos(cata, codigo);
     }
+    @RequestMapping(method = RequestMethod.PUT,value = "/disable/{codigo}")
+    public responseDto disableCatalogos(@PathVariable Long codigo){
+        return catalogosservice.disableProducto(codigo);
+    }
+    @RequestMapping(method = RequestMethod.PUT,value = "/activate/{codigo}")
+    public responseDto activateCatalogos(@PathVariable Long codigo){
+        return catalogosservice.activateProducto(codigo);
+    }
 }

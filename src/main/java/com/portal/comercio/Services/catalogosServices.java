@@ -9,4 +9,6 @@ public interface catalogosServices {
     // public Page<catalogos> getCatalogos(Pageable pageable);
     public responseDto updateCatalogos(CatalogosModel catalogos, Long codigo);
     public responseDto saveCatalogos(CatalogosModel catalogos);
+    public responseDto disableProducto(Long codigo);
+    public responseDto activateProducto(Long codigo);
 }
